@@ -27,11 +27,11 @@
 class CodeGen {
    public:
     static bool HadError;
-    
+
     static std::unique_ptr<llvm::LLVMContext> TheContext;
     static std::unique_ptr<llvm::Module> TheModule;
     static std::unique_ptr<llvm::IRBuilder<>> Builder;
-    static std::map<std::string, llvm::Value *> NamedValues;
+    static std::map<std::string, llvm::Value*> NamedValues;
     static std::unique_ptr<Environment> CurrEnv;
 
     static llvm::Value* error(std::string Message);

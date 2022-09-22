@@ -1,5 +1,6 @@
+//To calculate the factorial (Comment testing)
 fun fact(n){
-    var output = 1;
+    var output:number = 1;
     if(n > 0){
         output = n*fact(n-1);
     }
@@ -7,8 +8,8 @@ fun fact(n){
 }
 
 fun xeMain(){
-    var number = 4;
-    var output = fact(number);
+    var myvar:number = 4;
+    var output:number = fact(myvar);
     printd(output);
     return 0;
 }

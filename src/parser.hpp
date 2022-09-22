@@ -14,6 +14,8 @@ class Parser {
     PrintVisitor printer;
     int Current = 0;
     bool PanicMode = false;
+    struct SymbolTable {
+    };
 
     // Helper functions
     bool match(TokenType Type);
@@ -50,7 +52,9 @@ class Parser {
     std::vector<std::unique_ptr<SmtAST>> ParsedStmts;
 
     bool isAtEnd();
-    Parser(const std::vector<Token*> Tokens) : Tokens(Tokens) { printer = PrintVisitor(); }
+    Parser(const std::vector<Token*> Tokens) : Tokens(Tokens) {
+        printer = PrintVisitor();
+    }
     std::unique_ptr<SmtAST> parseAST();
     void parseStmts();
     void printAST();

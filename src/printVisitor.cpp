@@ -32,16 +32,25 @@ void PrintVisitor::visit(GroupingAST* E) {
     E->Expr->accept(*this);
     std::cout << ")";
 }
-void PrintVisitor::visit(NumberAST* E) {
-    std::cout << "(NUMBER: ";
-    std::cout << E->Value;
-    std::cout << ")";
-}
+
 void PrintVisitor::visit(VariableAST* E) {
     std::cout << "(VARIABLE: ";
     std::cout << E->Name->Lexeme << " ";
     std::cout << ")";
 }
+
+void PrintVisitor::visit(NumberAST* E) {
+    std::cout << "(NUMBER: ";
+    std::cout << E->Value;
+    std::cout << ")";
+}
+
+void PrintVisitor::visit(StringAST* E) {
+    std::cout << "(STRING: ";
+    std::cout << E->Value;
+    std::cout << ")";
+}
+
 void PrintVisitor::visit(AssignAST* E) {
     std::cout << "(ASSIGN: ";
     std::cout << "name: " << E->Name->Lexeme << " ";

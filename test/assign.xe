@@ -1,4 +1,5 @@
 fun test(){
-    var y = 1;
+    //assigning a variable
+    y:number = 1;
     return y;
 }

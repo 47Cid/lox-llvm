@@ -20,8 +20,8 @@ class Scanner {
     char peekNext();
     char advance();
     void scanToken();
-    void lox_string();
-    void lox_number();
+    void xeString();
+    void xeNumber();
     void identifier();
     void addToken(TokenType Type);
     void addToken(TokenType Type, std::string Value);

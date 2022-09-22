@@ -7,8 +7,8 @@ fun fib(n){
 
 
 fun xeMain(){
-    var number = 9;
-    var output = fib(number);
+    var y:number = 9;
+    var output:number = fib(y);
     printd(output);
     return 0;
 }

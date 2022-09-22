@@ -1,0 +1,5 @@
+fun test(){
+    var name:string = "Blah Blah";
+
+    return 0;
+}

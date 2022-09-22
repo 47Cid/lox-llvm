@@ -1,7 +1,11 @@
 fun test(){
+    var mynum:number = 20;
     if(1){
-        return 0;
+        //If statement has it's own environment
+        var test:number = 1;
+        var mynum:number = 1;
     } else{
         return 0;
     }
+    return mynum;
 }

@@ -6,7 +6,7 @@
 #include "tokenType.hpp"
 
 class Token {
-   public:
+public:
     TokenType Type;
     std::string Lexeme;
     int Line;
