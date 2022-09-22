@@ -1,0 +1,4 @@
+fun test(){
+    var y = 1;
+    return y;
+}

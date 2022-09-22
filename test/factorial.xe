@@ -1,0 +1,14 @@
+fun fact(n){
+    var output = 1;
+    if(n > 0){
+        output = n*fact(n-1);
+    }
+    return output;
+}
+
+fun xeMain(){
+    var number = 4;
+    var output = fact(number);
+    printd(output);
+    return 0;
+}
