@@ -23,23 +23,26 @@
 #include "llvm/Target/TargetMachine.h"
 #include "llvm/Target/TargetOptions.h"
 #include <iostream>
+#include <map>
 
 class Environment {
 public:
-    llvm::Function* Function;
-    llvm::BasicBlock* ExitBlock;
-    std::unique_ptr<Environment> EnclosingEnv;
-    std::map<std::string, llvm::AllocaInst*> Locals;
-    Environment(llvm::Function* Function, llvm::BasicBlock* ExitBlock, std::unique_ptr<Environment> EnclosingEnv)
-        : Function(Function), ExitBlock(ExitBlock), EnclosingEnv(std::move(EnclosingEnv)) {}
-    llvm::AllocaInst* CreateEntryBlockAlloca(std::string Identifer);
-    llvm::StoreInst* storeLocal(std::string Identifer, llvm::Value* Value);
-    llvm::StoreInst* assignLocal(std::string Identifer, llvm::Value* Value);
-    llvm::LoadInst* getLocal(std::string Identifer);
-    ~Environment();
+  llvm::Function *Function;
+  llvm::BasicBlock *ExitBlock;
+  std::unique_ptr<Environment> EnclosingEnv;
+  std::map<std::string, llvm::AllocaInst *> Locals;
+  Environment(llvm::Function *Function, llvm::BasicBlock *ExitBlock,
+              std::unique_ptr<Environment> EnclosingEnv)
+      : Function(Function), ExitBlock(ExitBlock),
+        EnclosingEnv(std::move(EnclosingEnv)) {}
+  llvm::AllocaInst *createEntryBlockAlloca(std::string Identifer);
+  llvm::StoreInst *storeLocal(std::string Identifer, llvm::Value *Value);
+  llvm::StoreInst *assignLocal(std::string Identifer, llvm::Value *Value);
+  llvm::LoadInst *getLocal(std::string Identifer);
+  ~Environment();
 
 private:
-    llvm::AllocaInst* getAlloca(std::string Identifer);
+  llvm::AllocaInst *getAlloca(std::string Identifer);
 };
 
 #endif

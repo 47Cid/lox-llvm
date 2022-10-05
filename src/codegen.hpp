@@ -1,6 +1,8 @@
 #ifndef CODEGEN_H
 #define CODEGEN_H
 
+#include <map>
+
 #include "environment.hpp"
 #include "llvm/ADT/APFloat.h"
 #include "llvm/ADT/Optional.h"
@@ -25,18 +27,18 @@
 #include "llvm/Target/TargetOptions.h"
 
 class CodeGen {
-   public:
-    static bool HadError;
+public:
+  static bool HadError;
 
-    static std::unique_ptr<llvm::LLVMContext> TheContext;
-    static std::unique_ptr<llvm::Module> TheModule;
-    static std::unique_ptr<llvm::IRBuilder<>> Builder;
-    static std::map<std::string, llvm::Value*> NamedValues;
-    static std::unique_ptr<Environment> CurrEnv;
+  static std::unique_ptr<llvm::LLVMContext> TheContext;
+  static std::unique_ptr<llvm::Module> TheModule;
+  static std::unique_ptr<llvm::IRBuilder<>> Builder;
+  static std::map<std::string, llvm::Value *> NamedValues;
+  static std::unique_ptr<Environment> CurrEnv;
 
-    static llvm::Value* error(std::string Message);
-    static llvm::Value* insertExtFunctions();
-    static int generateIR();
+  static llvm::Value *error(std::string Message);
+  static llvm::Value *insertExtFunctions();
+  static int generateIR();
 };
 
 #endif

@@ -3,9 +3,9 @@
 ########################################################################
 
 # Compiler settings - Can be customized.
-CC = clang++-12
+CC = g++
 CXXFLAGS = -g -O3 -Wall
-LDFLAGS = `llvm-config-12 --cxxflags --ldflags --system-libs --libs core`
+LDFLAGS = `llvm-config --cxxflags --ldflags --system-libs --libs core`
 
 # Makefile settings - Can be customized.
 APPNAME = xenon
